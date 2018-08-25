@@ -19,7 +19,17 @@
 //                accessToken: 'your.mapbox.access.token'
                 accessToken:'pk.eyJ1Ijoic2FrYWtlbmRvIiwiYSI6ImNqbDkyYWY5ZjNwOG0zeHFwOHNjenl5aDEifQ.-7oso9sU2IrvPsTls_nxVQ'
             }).addTo(mymap);
-           var marker = L.marker([51.5, -0.09]).addTo(mymap); 
+           var marker = L.marker([51.5, -0.09]).addTo(mymap);
+            var planes=[
+                [-40.99497,174.50808],
+                [-41.30269,173.63696],
+                [-41.49413,173.5421],
+                [-40.98585,174.50659],
+                [-40.93163,173.81726],
+            ];
+            for(var i=0;i<planes.length;i++){
+                marker=new L.marker([planes[i][0],planes[i][1]]).addTo(mymap);
+            }
 		</script>
 		<form action="/" method="post">
 			<input type="text" value="swarm"><br>
