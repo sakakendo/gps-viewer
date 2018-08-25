@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>gps-viewer></title>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" /> 
+		<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+	</head>
+	<body>
+		hello gps-viewer
+		<div id="mapid" style="height: 500px;"></div></div>
+		<script text="text/javascript">
+			var mymap=L.map('mapid').setView([51.505,-0.09],13);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox.streets',
+//                accessToken: 'your.mapbox.access.token'
+                accessToken:'pk.eyJ1Ijoic2FrYWtlbmRvIiwiYSI6ImNqbDkyYWY5ZjNwOG0zeHFwOHNjenl5aDEifQ.-7oso9sU2IrvPsTls_nxVQ'
+            }).addTo(mymap);
+           var marker = L.marker([51.5, -0.09]).addTo(mymap); 
+		</script>
+		<form action="/" method="post">
+			<input type="text" value="swarm"><br>
+			<input type="text" value="strava"><br>
+			<input type="submit" value="draw"><br>
+		</form>
+	</body>
+
+</html>

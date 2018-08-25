@@ -1,0 +1,13 @@
+
+{
+	[
+		strava:{
+			"dir":"",
+			"ext":"gpx"
+		},
+		swarm:{
+			"dir":"",
+			"ext":"json"
+		}
+	]
+}
