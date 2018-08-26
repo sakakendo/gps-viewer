@@ -12,6 +12,7 @@
 		<div id="mapid" style="height: 500px;"></div></div>
 		<script text="text/javascript">
 			const fs=require('fs');
+			const gpxParse=require('gpx-parse');
 			require('dotenv').config();
 			function drawMarker(planes){
 				for(var i=0;i<planes.length;i++){
@@ -30,6 +31,26 @@
 					marker.push([checkins.items[i].lat,checkins.items[i].lng]);
 				}
 				drawMarker(marker);
+			}
+			function drawStrava(){
+				const stravaBase='./data/activities/';
+				fs.readdir(stravaBase,(err,files)=>{
+					if(err) throw err;
+					var fileList=files.filter((file)=>{
+						console.log(stravaBase+file);
+						return fs.statSync(stravaBase+file).isFile() && /.*\.gpx$/.test(stravaBase+file);
+					});
+					for(var i=0;i<length(fileList);i++){
+						var file=process.cwd()+stravaBase+fileList[i];
+/*						gpxParse.parseGpxFromFile(file,(err,data)=>{
+							if(err) throw err;
+							console.log(file,data);
+
+						});
+						*/
+					}
+				});
+
 			}
 //			console.log('data/test.txt : ' , fs.readFileSync('./data/test.txt'));
 			var mymap=L.map('mapid').setView([35.68, 139.76],13);
