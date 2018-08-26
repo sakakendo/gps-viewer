@@ -2,6 +2,7 @@
 "use strct";
 
 const electron = require("electron");
+require('electron-debug')();
 const app=electron.app;
 const BrowserWindow=electron.BrowserWindow;
 let mainWindow=null
@@ -15,7 +16,7 @@ app.on("window-all-closed",()=>{
 app.on('ready',()=>{
 	var index=`file://${__dirname}/index.html`;
 	console.log("load successed : " , index);
-	mainWindow = new BrowserWindow({width:1280,height:720,useContentSize:true});
+	mainWindow = new BrowserWindow({width:1280,height:720,useContentSize:true,webPreferences:{devTools:true}});
 	mainWindow.loadURL(index);
 //	mainWindow.loadURL('./index.html');
 	mainWindow.on("closed",()=>{
